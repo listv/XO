@@ -15,7 +15,7 @@ public class Field {
         return field[point.x][point.y];
     }
 
-    public void SetFigure(final Point point, final Figure figure){
+    public void setFigure(final Point point, final Figure figure){
         field[point.x][point.y]=figure;
     }
 }
