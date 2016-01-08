@@ -5,14 +5,19 @@ import listv.xo.model.exceptions.InvalidPointException;
 import java.awt.*;
 
 public class Field {
-    public static final int FIELD_SIZE = 3;
     public static final int MIN_COORDINATE = 0;
-    public static final int MAX_COORDINATE = FIELD_SIZE;
 
-    private final Figure[][] field=new Figure[FIELD_SIZE][FIELD_SIZE];
+    private final Figure[][] field;
+
+    private final int fieldSize;
+
+    public Field(int fieldSize) {
+        this.fieldSize = fieldSize;
+        field = new Figure[fieldSize][fieldSize];
+    }
 
     public int getSize(){
-        return FIELD_SIZE;
+        return fieldSize;
     }
 
     public Figure getFigure(final Point point) throws InvalidPointException {
@@ -30,10 +35,10 @@ public class Field {
     }
 
     private boolean isCorrectPoint(final Point point) {
-        return isCorrectCoordinate(point.x) && isCorrectCoordinate(point.y);
+        return isCorrectCoordinate(point.x, field.length) && isCorrectCoordinate(point.y, field[point.x].length);
     }
 
-    private boolean isCorrectCoordinate(final int coordinate) {
-        return coordinate >= MIN_COORDINATE && coordinate < MAX_COORDINATE;
+    private boolean isCorrectCoordinate(final int coordinate, final int maxCoordinate) {
+        return coordinate >= MIN_COORDINATE && coordinate < maxCoordinate;
     }
 }
