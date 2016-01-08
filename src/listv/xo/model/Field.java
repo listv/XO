@@ -1,6 +1,5 @@
 package listv.xo.model;
 
-import listv.xo.model.exceptions.AlreadyOccupiedException;
 import listv.xo.model.exceptions.InvalidPointException;
 
 import java.awt.*;
@@ -23,12 +22,9 @@ public class Field {
         return field[point.x][point.y];
     }
 
-    public void setFigure(final Point point, final Figure figure) throws InvalidPointException, AlreadyOccupiedException {
+    public void setFigure(final Point point, final Figure figure) throws InvalidPointException {
         if (!isCorrectPoint(point)){
             throw new InvalidPointException();
-        }
-        if (null!=field[point.x][point.y]){
-            throw new AlreadyOccupiedException();
         }
         field[point.x][point.y]=figure;
     }
