@@ -26,7 +26,7 @@ public class WinnerController {
                 return field.getFigure(new Point(0, 0));
             }
 
-            if (check(field, new Point(0, 2), point -> new Point(point.x+1, point.y-1))) {
+            if (check(field, new Point(0, field.getSize()-1), point -> new Point(point.x+1, point.y-1))) {
                 return field.getFigure(new Point(0, 2));
             }
         } catch (InvalidPointException e) {
