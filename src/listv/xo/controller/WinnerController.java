@@ -27,7 +27,7 @@ public class WinnerController {
             }
 
             if (check(field, new Point(0, field.getSize()-1), point -> new Point(point.x+1, point.y-1))) {
-                return field.getFigure(new Point(0, 2));
+                return field.getFigure(new Point(0, field.getSize()-1));
             }
         } catch (InvalidPointException e) {
             e.printStackTrace();
@@ -42,7 +42,7 @@ public class WinnerController {
         try {
             currentFigure=field.getFigure(currentPoint);
             nextFigure=field.getFigure(nextPoint);
-        } catch (InvalidPointException e) {
+        } catch (final InvalidPointException e) {
             return true;
         }
 
