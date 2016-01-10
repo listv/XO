@@ -9,7 +9,7 @@ public class GameTest {
     @Test
     public void testGetPlayers() throws Exception {
         final Player[] inputPlayers=new Player[]{new Player("Sasha", Figure.X), new Player("Grisha", Figure.O)};
-        final Field inputField=new Field();
+        final Field inputField=new Field(3);
         final String inputName="Game1";
         final Game game=new Game(inputPlayers, inputField, inputName);
         final Player[] expectedPlayers=inputPlayers;
@@ -22,7 +22,7 @@ public class GameTest {
     @Test
     public void testGetField() throws Exception {
         final Player[] inputPlayers=new Player[]{new Player("Sasha", Figure.X), new Player("Grisha", Figure.O)};
-        final Field inputField=new Field();
+        final Field inputField=new Field(3);
         final String inputName="Game1";
         final Game game=new Game(inputPlayers, inputField, inputName);
         final Field expectedField=inputField;
